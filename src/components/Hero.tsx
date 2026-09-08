@@ -5,65 +5,99 @@ export const Hero: React.FC = () => {
   return (
     <section 
       id="hero"
-      className="relative w-full min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden select-none"
+      className="relative w-full min-h-screen flex flex-col justify-between items-center text-center px-4 sm:px-8 pt-24 pb-8 overflow-hidden select-none"
       style={{ backgroundColor: 'var(--bg-primary)' }}
     >
-      {/* Subtle organic ambient textural gradient element — calm, slow, non-neon */}
+      {/* Subtle organic ambient textural gradient element — calm, slow, restrained */}
       <div 
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full pointer-events-none opacity-35 blur-3xl"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[620px] h-[620px] rounded-full pointer-events-none opacity-30 blur-3xl"
         style={{
-          background: 'radial-gradient(circle, rgba(232, 207, 196, 0.7) 0%, rgba(237, 226, 208, 0.4) 50%, transparent 80%)',
-          animation: 'subtleFloat 20s ease-in-out infinite alternate',
+          background: 'radial-gradient(circle, rgba(232, 207, 196, 0.6) 0%, rgba(237, 226, 208, 0.3) 50%, transparent 80%)',
+          animation: 'subtleFloat 22s ease-in-out infinite alternate',
         }}
         aria-hidden="true"
       />
       <div 
-        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full pointer-events-none opacity-25 blur-3xl"
+        className="absolute bottom-10 right-10 w-[420px] h-[420px] rounded-full pointer-events-none opacity-20 blur-3xl"
         style={{
-          background: 'radial-gradient(circle, rgba(92, 26, 43, 0.12) 0%, rgba(185, 167, 147, 0.2) 60%, transparent 85%)',
-          animation: 'subtleFloatReverse 24s ease-in-out infinite alternate',
+          background: 'radial-gradient(circle, rgba(92, 26, 43, 0.12) 0%, rgba(185, 167, 147, 0.18) 60%, transparent 85%)',
+          animation: 'subtleFloatReverse 26s ease-in-out infinite alternate',
         }}
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto my-auto flex flex-col items-center">
-        {/* The Main Visual Event: DIVYA SRI TEEGALA */}
+      {/* Top spacer for breathing room below navigation */}
+      <div className="w-full h-4 sm:h-8" aria-hidden="true" />
+
+      {/* Main Visual Event: Massive Burgundy Typographic Masthead Composition */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto my-auto py-6 flex flex-col items-center">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
-          className="mb-8"
+          transition={{ duration: 1.3, ease: [0.25, 1, 0.5, 1] }}
+          className="w-full"
         >
           <h1 
-            className="font-serif-title text-[clamp(2.9rem,8.5vw,7.2rem)] font-normal tracking-[-0.03em] leading-[0.98] text-[#2B2320]"
+            className="font-serif-title font-normal tracking-[-0.035em] text-[#5C1A2B] uppercase leading-[0.88] mx-auto text-center"
+            style={{
+              fontSize: 'clamp(3.6rem, 12.8vw, 11.2rem)',
+            }}
           >
-            DIVYA SRI TEEGALA
+            <span className="block">DIVYA SRI</span>
+            <span className="block">TEEGALA</span>
           </h1>
         </motion.div>
 
-        {/* Understated 1-2 line description beneath the name — not a bio, strictly understated */}
+        {/* Small, understated, factual bio — no marketing words, no self-praise */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.25, ease: [0.25, 1, 0.5, 1] }}
-          className="max-w-xl mx-auto"
+          transition={{ duration: 1.1, delay: 0.3, ease: [0.25, 1, 0.5, 1] }}
+          className="mt-8 sm:mt-12 max-w-xl mx-auto space-y-1.5 px-4"
         >
-          <p className="font-serif-body italic text-[clamp(1.1rem,1.9vw,1.35rem)] text-[#635852] leading-relaxed">
-            Computer Science &amp; Engineering at MVGR College of Engineering.
-            <br />
-            Exploring distributed architectures, secure systems, and thoughtful interfaces.
+          <p className="font-sans text-[0.88rem] sm:text-[0.98rem] text-[#635852] leading-relaxed">
+            Computer Science &amp; Engineering student at MVGR College of Engineering, specializing in IoT, Cybersecurity &amp; Blockchain.
+          </p>
+          <p className="font-sans text-[0.82rem] sm:text-[0.9rem] text-[#8A6D56]">
+            Technology Officer at NetMaxin Group.
           </p>
         </motion.div>
       </div>
 
+      {/* Subtle, quiet scroll cue */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.7 }}
+        transition={{ duration: 1.4, delay: 0.6 }}
+        className="relative z-10 pb-2 flex flex-col items-center gap-2"
+        aria-hidden="true"
+      >
+        <span className="font-sans text-[0.65rem] tracking-[0.24em] uppercase text-[#8A6D56]">
+          Scroll
+        </span>
+        <div className="w-[1px] h-7 bg-[#5C1A2B]/40 overflow-hidden relative">
+          <span 
+            className="block w-full h-2.5 bg-[#5C1A2B]"
+            style={{
+              animation: 'scrollPulse 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite',
+            }}
+          />
+        </div>
+      </motion.div>
+
       <style>{`
         @keyframes subtleFloat {
           0% { transform: translate(-50%, -50%) scale(1); }
-          100% { transform: translate(-55%, -45%) scale(1.08); }
+          100% { transform: translate(-54%, -46%) scale(1.06); }
         }
         @keyframes subtleFloatReverse {
           0% { transform: translate(0, 0) scale(1); }
-          100% { transform: translate(25px, -20px) scale(1.05); }
+          100% { transform: translate(20px, -20px) scale(1.05); }
+        }
+        @keyframes scrollPulse {
+          0% { transform: translateY(-100%); opacity: 0; }
+          40% { opacity: 1; }
+          100% { transform: translateY(280%); opacity: 0; }
         }
       `}</style>
     </section>
