@@ -5,7 +5,7 @@ export const Hero: React.FC = () => {
   return (
     <section 
       id="hero"
-      className="relative w-full h-screen min-h-[640px] flex flex-col justify-between items-center text-center px-6 sm:px-12 pt-20 pb-10 overflow-hidden select-none"
+      className="relative w-full h-screen min-h-[580px] flex flex-col justify-between items-center text-center px-6 sm:px-12 pt-28 pb-8 overflow-hidden select-none"
       style={{ backgroundColor: 'var(--bg-primary)' }}
     >
       {/* Subtle atmospheric cinematic light / vignette layer — soft, dreamy, unobtrusive */}
@@ -27,7 +27,7 @@ export const Hero: React.FC = () => {
       />
 
       {/* Top balance spacer */}
-      <div className="w-full h-2 sm:h-6" aria-hidden="true" />
+      <div className="w-full h-2" aria-hidden="true" />
 
       {/* Main Typographic Composition: Visual Center */}
       <div className="relative z-10 w-full max-w-6xl mx-auto my-auto flex flex-col items-center justify-center">
@@ -41,8 +41,8 @@ export const Hero: React.FC = () => {
           <h1 
             className="font-serif-title font-normal text-[#5C1A2B] uppercase tracking-[-0.03em] mx-auto text-center"
             style={{
-              fontSize: 'clamp(3.4rem, 11vw, 9.8rem)',
-              lineHeight: 0.88,
+              fontSize: 'clamp(3rem, min(8.6vw, 13.5vh), 7.8rem)',
+              lineHeight: 0.9,
               letterSpacing: '-0.025em',
             }}
           >
@@ -50,6 +50,7 @@ export const Hero: React.FC = () => {
             <span className="block">TEEGALA</span>
           </h1>
         </motion.div>
+
 
         {/* Exact Bio Sentence: Directly connected beneath the name */}
         <motion.p
