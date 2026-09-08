@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 interface NavItem {
   label: string;
@@ -7,14 +7,13 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { label: 'About', href: '#about' },
-  { label: 'Photos', href: '#photos' },
-  { label: 'Work', href: '#work' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Education', href: '#education' },
-  { label: 'Certifications', href: '#certifications' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'ABOUT', href: '#about' },
+  { label: 'WORK', href: '#work' },
+  { label: 'EXPERIENCE', href: '#experience' },
+  { label: 'SKILLS', href: '#skills' },
+  { label: 'CERTIFICATIONS', href: '#certifications' },
+  { label: 'EDUCATION', href: '#education' },
+  { label: 'CONTACT', href: '#contact' },
 ];
 
 export const Navigation: React.FC = () => {
@@ -54,34 +53,41 @@ export const Navigation: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
         isScrolled
-          ? 'bg-[#F7F1E8]/90 backdrop-blur-md border-b border-[#5C1A2B]/10 shadow-[0_2px_20px_rgba(92,26,43,0.03)]'
-          : 'bg-transparent'
+          ? 'bg-[#F9F5EE]/95 backdrop-blur-md border-b border-[#751424]/10 shadow-[0_2px_20px_rgba(117,20,36,0.03)] py-3'
+          : 'bg-transparent pt-6 sm:pt-8 pb-4'
       }`}
-      style={{
-        padding: isScrolled ? '0.85rem 0' : '1.5rem 0',
-        transition: 'padding 0.4s ease, background-color 0.4s ease, border-color 0.4s ease'
-      }}
     >
-      <div className="editorial-container flex items-center justify-between">
-        {/* Name Mark — No "portfolio" label */}
-        <a
-          href="#hero"
-          onClick={(e) => handleNavClick(e, '#hero')}
-          className="group flex items-baseline cursor-pointer select-none"
-          aria-label="Divya Sri Teegala - Top"
-        >
-          <span 
-            className="font-serif-title font-medium text-lg tracking-tight transition-colors duration-300 group-hover:text-[#5C1A2B]"
-            style={{ color: 'var(--accent-burgundy)' }}
-          >
-            Divya Sri Teegala
-          </span>
-        </a>
+      <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16 flex items-start justify-between">
+        
+        {/* Top-Left: "good ideas take time —" in Caveat script when at top, or Name mark when scrolled */}
+        <div className="flex items-start">
+          {isScrolled ? (
+            <a
+              href="#hero"
+              onClick={(e) => handleNavClick(e, '#hero')}
+              className="font-serif-title font-medium text-base tracking-wide cursor-pointer transition-colors"
+              style={{ color: '#751424' }}
+              aria-label="Divya Sri Teegala - Top"
+            >
+              DIVYA SRI TEEGALA
+            </a>
+          ) : (
+            <div className="flex flex-col text-left select-none pointer-events-none">
+              <span
+                className="text-[1.35rem] sm:text-[1.55rem] font-medium leading-[1.08]"
+                style={{ fontFamily: "'Caveat', cursive", color: '#751424' }}
+              >
+                good<br />ideas<br />take time
+              </span>
+              <span className="w-5 h-[1.5px] bg-[#751424] mt-1.5 block opacity-85" />
+            </div>
+          )}
+        </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-7" aria-label="Main Navigation">
+        {/* Top-Right: Exact Navigation Links in Josefin Sans */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8 pt-1" aria-label="Main Navigation">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.href.substring(1);
             return (
@@ -89,37 +95,21 @@ export const Navigation: React.FC = () => {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`relative font-sans text-[0.76rem] tracking-[0.14em] uppercase transition-colors duration-300 py-1 ${
-                  isActive ? 'text-[#5C1A2B] font-semibold' : 'text-[#635852] hover:text-[#5C1A2B]'
+                className={`text-[0.72rem] tracking-[0.22em] transition-colors py-1 ${
+                  isActive ? 'text-[#751424] font-semibold' : 'text-[#3D332E] hover:text-[#751424]'
                 }`}
+                style={{ fontFamily: "'Josefin Sans', sans-serif" }}
               >
                 {item.label}
-                {isActive && (
-                  <span
-                    className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#5C1A2B] rounded-full"
-                    style={{ animation: 'fadeIn 0.3s ease' }}
-                  />
-                )}
               </a>
             );
           })}
-
-          <a
-            href="https://hiresphereai.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="editorial-btn-outline ml-1 text-[0.72rem] py-1.5 px-3 flex items-center gap-1.5"
-            style={{ borderColor: 'rgba(92, 26, 43, 0.2)' }}
-          >
-            <span>Live Showcase</span>
-            <ArrowUpRight size={13} className="opacity-70" />
-          </a>
         </nav>
 
         {/* Mobile Hamburger Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-[#5C1A2B] hover:bg-[#5C1A2B]/5 rounded transition-colors"
+          className="md:hidden p-2 text-[#751424] hover:bg-[#751424]/5 rounded transition-colors"
           aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={mobileMenuOpen}
         >
@@ -130,7 +120,7 @@ export const Navigation: React.FC = () => {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div 
-          className="md:hidden bg-[#FAF6EE] border-b border-[#5C1A2B]/15 px-6 py-6 shadow-xl"
+          className="md:hidden bg-[#FAF6EE] border-b border-[#751424]/15 px-6 py-6 shadow-xl"
           style={{ animation: 'slideDown 0.25s ease-out' }}
         >
           <div className="flex flex-col gap-3">
@@ -139,21 +129,13 @@ export const Navigation: React.FC = () => {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="font-sans text-xs tracking-[0.16em] uppercase text-[#2B2320] hover:text-[#5C1A2B] py-2 border-b border-[#5C1A2B]/10 flex items-center justify-between"
+                className="text-xs tracking-[0.2em] text-[#2B2320] hover:text-[#751424] py-2 border-b border-[#751424]/10 flex items-center justify-between"
+                style={{ fontFamily: "'Josefin Sans', sans-serif" }}
               >
                 <span>{item.label}</span>
-                <span className="text-[#8A6D56] font-serif-body italic text-xs">0{index + 1}</span>
+                <span className="font-serif-body italic text-xs text-[#8A6D56]">0{index + 1}</span>
               </a>
             ))}
-            <a
-              href="https://hiresphereai.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="editorial-btn-primary mt-2 text-center justify-center text-xs py-2.5"
-            >
-              <span>Featured Project</span>
-              <ArrowUpRight size={14} />
-            </a>
           </div>
         </div>
       )}
