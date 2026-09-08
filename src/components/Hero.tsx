@@ -10,11 +10,12 @@ export const Hero: React.FC = () => {
     >
       {/* Top-Left Subtle Handwritten Editorial Note */}
       <div 
-        className="absolute top-28 left-8 sm:left-14 lg:left-20 pointer-events-none select-none hidden sm:block"
+        className="absolute pointer-events-none select-none hidden sm:block text-left"
+        style={{ top: '6.5rem', left: 'clamp(1.5rem, 5vw, 5rem)' }}
         aria-hidden="true"
       >
         <span 
-          className="text-2xl sm:text-3xl text-[#8A6D56]/65"
+          className="text-2xl sm:text-3xl text-[#8A6D56]/65 block"
           style={{ fontFamily: "'Pinyon Script', 'Italianno', cursive" }}
         >
           editorial space
@@ -23,16 +24,18 @@ export const Hero: React.FC = () => {
 
       {/* Right Side Subtle Handwritten Note */}
       <div 
-        className="absolute top-1/2 right-8 sm:right-14 lg:right-20 -translate-y-1/2 pointer-events-none select-none hidden md:block"
+        className="absolute pointer-events-none select-none hidden md:block text-right"
+        style={{ top: '48%', right: 'clamp(1.5rem, 4vw, 4.5rem)', transform: 'translateY(-50%)' }}
         aria-hidden="true"
       >
         <span 
-          className="text-2xl sm:text-3xl text-[#8A6D56]/65"
+          className="text-2xl sm:text-3xl text-[#8A6D56]/65 block"
           style={{ fontFamily: "'Pinyon Script', 'Italianno', cursive" }}
         >
           quiet inquiry
         </span>
       </div>
+
 
       {/* Top Spacer to balance viewport */}
       <div className="w-full h-2" aria-hidden="true" />
