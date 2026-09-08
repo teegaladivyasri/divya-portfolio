@@ -74,7 +74,12 @@ export const Hero: React.FC = () => {
 
       {/* Bottom-Right Handwritten Script Note: "same curiosity new horizons —" */}
       <div 
-        className="absolute bottom-10 sm:bottom-12 right-6 sm:right-12 lg:right-16 text-left select-none pointer-events-none hidden sm:block"
+        className="text-left select-none pointer-events-none hidden sm:block"
+        style={{
+          position: 'absolute',
+          bottom: 'clamp(2.5rem, 6vh, 4.5rem)',
+          right: 'clamp(2rem, 5vw, 5rem)',
+        }}
         aria-hidden="true"
       >
         <span
@@ -86,5 +91,6 @@ export const Hero: React.FC = () => {
         <span className="w-5 h-[1.5px] bg-[#751424] mt-1.5 block opacity-85" />
       </div>
     </section>
+
   );
 };
