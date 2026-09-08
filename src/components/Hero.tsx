@@ -5,45 +5,54 @@ export const Hero: React.FC = () => {
   return (
     <section 
       id="hero"
-      className="relative w-full h-screen min-h-[580px] flex flex-col justify-between items-center text-center px-6 sm:px-12 pt-28 pb-8 overflow-hidden select-none"
-      style={{ backgroundColor: 'var(--bg-primary)' }}
+      className="relative w-full h-screen min-h-[620px] flex flex-col justify-between items-center text-center px-6 sm:px-12 pt-28 pb-8 overflow-hidden select-none"
+      style={{ backgroundColor: '#F7F1E8' }}
     >
-      {/* Subtle atmospheric cinematic light / vignette layer — soft, dreamy, unobtrusive */}
+      {/* Top-Left Subtle Handwritten Editorial Note */}
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none opacity-25 blur-3xl"
-        style={{
-          background: 'radial-gradient(circle, rgba(232, 207, 196, 0.7) 0%, rgba(237, 226, 208, 0.35) 45%, transparent 75%)',
-          animation: 'dreamyAtmosphere 20s ease-in-out infinite alternate',
-        }}
+        className="absolute top-28 left-8 sm:left-14 lg:left-20 pointer-events-none select-none hidden sm:block"
         aria-hidden="true"
-      />
-      <div 
-        className="absolute -bottom-20 -right-20 w-[450px] h-[450px] rounded-full pointer-events-none opacity-20 blur-3xl"
-        style={{
-          background: 'radial-gradient(circle, rgba(92, 26, 43, 0.14) 0%, rgba(185, 167, 147, 0.16) 50%, transparent 80%)',
-          animation: 'dreamyAtmosphereReverse 26s ease-in-out infinite alternate',
-        }}
-        aria-hidden="true"
-      />
+      >
+        <span 
+          className="text-2xl sm:text-3xl text-[#8A6D56]/65"
+          style={{ fontFamily: "'Pinyon Script', 'Italianno', cursive" }}
+        >
+          editorial space
+        </span>
+      </div>
 
-      {/* Top balance spacer */}
+      {/* Right Side Subtle Handwritten Note */}
+      <div 
+        className="absolute top-1/2 right-8 sm:right-14 lg:right-20 -translate-y-1/2 pointer-events-none select-none hidden md:block"
+        aria-hidden="true"
+      >
+        <span 
+          className="text-2xl sm:text-3xl text-[#8A6D56]/65"
+          style={{ fontFamily: "'Pinyon Script', 'Italianno', cursive" }}
+        >
+          quiet inquiry
+        </span>
+      </div>
+
+      {/* Top Spacer to balance viewport */}
       <div className="w-full h-2" aria-hidden="true" />
 
-      {/* Main Typographic Composition: Visual Center */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto my-auto flex flex-col items-center justify-center">
+      {/* Main Unified Typographic Composition: Visual Center */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto my-auto flex flex-col items-center justify-center">
+        {/* The Name: Two Lines Treated as ONE Unified Typographic Composition */}
         <motion.div
-          initial={{ opacity: 0, y: 22 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.4, ease: [0.25, 1, 0.5, 1] }}
+          transition={{ duration: 1.3, ease: [0.25, 1, 0.5, 1] }}
           className="w-full"
         >
-          {/* Two lines treated as ONE unified typographic composition */}
           <h1 
-            className="font-serif-title font-normal text-[#5C1A2B] uppercase tracking-[-0.03em] mx-auto text-center"
+            className="font-normal text-[#5C1A2B] uppercase text-center mx-auto"
             style={{
-              fontSize: 'clamp(3rem, min(8.6vw, 13.5vh), 7.8rem)',
+              fontFamily: "'Playfair Display', 'Cormorant Garamond', Georgia, serif",
+              fontSize: 'clamp(3.1rem, min(8.6vw, 13.5vh), 7.8rem)',
               lineHeight: 0.9,
-              letterSpacing: '-0.025em',
+              letterSpacing: '-0.02em',
             }}
           >
             <span className="block">DIVYA SRI</span>
@@ -51,51 +60,41 @@ export const Hero: React.FC = () => {
           </h1>
         </motion.div>
 
-
-        {/* Exact Bio Sentence: Directly connected beneath the name */}
+        {/* Hero Description: Directly Below the Name, Fairly Close */}
         <motion.p
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.35, ease: [0.25, 1, 0.5, 1] }}
-          className="font-sans text-[clamp(0.85rem,1.4vw,1.05rem)] text-[#635852] font-normal tracking-wide max-w-xl mx-auto mt-6 sm:mt-8 px-4 leading-relaxed"
+          transition={{ duration: 1.1, delay: 0.25, ease: [0.25, 1, 0.5, 1] }}
+          className="text-center text-[#4A3E39] font-normal mx-auto mt-6 sm:mt-7 max-w-xl px-4 leading-relaxed"
+          style={{
+            fontFamily: "'Josefin Sans', sans-serif",
+            fontSize: 'clamp(0.85rem, 1.2vw, 1.02rem)',
+            letterSpacing: '0.04em',
+          }}
         >
-          I'm curious about how things work — and I like figuring out how to make them.
+          “I’m curious about how things work — and I like figuring out how to make them.”
         </motion.p>
       </div>
 
-      {/* Subtle, quiet scroll indicator */}
+      {/* Subtle Scroll Indicator at Bottom Center */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.6 }}
-        transition={{ duration: 1.5, delay: 0.7 }}
-        className="relative z-10 flex flex-col items-center gap-2"
+        animate={{ opacity: 0.8 }}
+        transition={{ duration: 1.4, delay: 0.5 }}
+        className="relative z-10 flex flex-col items-center gap-2 select-none"
         aria-hidden="true"
       >
-        <div className="w-[1px] h-8 bg-[#5C1A2B]/30 overflow-hidden relative">
-          <span 
-            className="block w-full h-3 bg-[#5C1A2B]"
-            style={{
-              animation: 'scrollPulse 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite',
-            }}
-          />
+        <span 
+          className="text-[0.6rem] uppercase tracking-[0.26em] text-[#8A6D56]"
+          style={{ fontFamily: "'Josefin Sans', sans-serif" }}
+        >
+          SCROLL
+        </span>
+        <div className="flex flex-col items-center gap-1">
+          <div className="w-[1px] h-6 bg-[#5C1A2B]/35" />
+          <div className="w-1.5 h-1.5 rounded-full bg-[#5C1A2B]" />
         </div>
       </motion.div>
-
-      <style>{`
-        @keyframes dreamyAtmosphere {
-          0% { transform: translate(-50%, -50%) scale(1); }
-          100% { transform: translate(-53%, -47%) scale(1.08); }
-        }
-        @keyframes dreamyAtmosphereReverse {
-          0% { transform: translate(0, 0) scale(1); }
-          100% { transform: translate(15px, -15px) scale(1.06); }
-        }
-        @keyframes scrollPulse {
-          0% { transform: translateY(-100%); opacity: 0; }
-          40% { opacity: 1; }
-          100% { transform: translateY(280%); opacity: 0; }
-        }
-      `}</style>
     </section>
   );
 };
