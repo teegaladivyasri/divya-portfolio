@@ -37,13 +37,13 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section 
-      id="contact" 
+    <section
+      id="contact"
       className="editorial-section border-t border-[#5C1A2B]/10 relative overflow-hidden"
       style={{ backgroundColor: 'var(--bg-primary)' }}
     >
       <div className="editorial-container-narrow text-center py-8">
-        
+
         {/* Section Kicker */}
         <span className="section-kicker justify-center mb-6">
           07 / Contact
@@ -51,11 +51,11 @@ export const Contact: React.FC = () => {
 
         {/* Headline */}
         <h2 className="font-serif-title text-[clamp(2.2rem,5vw,3.6rem)] text-[#2B2320] leading-tight font-normal mb-6">
-          Correspondence &amp; Channels
+          Contact &amp; Collaborations
         </h2>
 
         <p className="font-serif-body italic text-lg text-[#635852] max-w-xl mx-auto leading-relaxed mb-10">
-          Open to discussions on cryptography, distributed consensus, or software verification roles.
+          Open to opportunities where I can learn and contribute.
         </p>
 
         {/* Primary Email Card */}
@@ -64,7 +64,7 @@ export const Contact: React.FC = () => {
             Direct Electronic Mail
           </span>
 
-          <a 
+          <a
             href={`mailto:${contact.email}`}
             className="font-serif-title text-xl text-[#5C1A2B] hover:text-[#461320] transition-colors block mb-4 break-all"
           >

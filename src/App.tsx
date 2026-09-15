@@ -3,7 +3,6 @@ import { GrainOverlay } from './components/GrainOverlay';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { PhotoCollage } from './components/PhotoCollage';
 import { WorkShowcase } from './components/WorkShowcase';
 import { Credentials } from './components/Credentials';
 import { CertificationsArchive } from './components/CertificationsArchive';
@@ -20,18 +19,15 @@ export const App: React.FC = () => {
       {/* Editorial Navigation */}
       <Navigation />
 
-      {/* Main Flow: Full-screen name -> About -> Photographs -> Projects -> Experience -> Education -> Certifications -> Skills -> Contact */}
+      {/* Main Flow: Full-screen name -> About & Single Photo -> Projects -> Experience & Education -> Certifications -> Skills -> Contact */}
       <main className="flex-grow">
         {/* 1. Full-screen opening: DIVYA SRI TEEGALA */}
         <Hero />
 
-        {/* 2. About & Academic background */}
+        {/* 2. About & Academic background with single personal photo */}
         <About />
 
-        {/* 3. Personal Photographs */}
-        <PhotoCollage />
-
-        {/* 4. Selected Work / Projects */}
+        {/* 3. Selected Work / Projects */}
         <WorkShowcase />
 
         {/* 5. Experience & Education */}

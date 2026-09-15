@@ -17,21 +17,18 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 export const Navigation: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-
-      // Section spy
-      const sections = NAV_ITEMS.map(item => item.href.substring(1));
-      const current = sections.find(section => {
+      // Active section spy
+      const sections = NAV_ITEMS.map((item) => item.href.substring(1));
+      const current = sections.find((section) => {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          return rect.top <= 200 && rect.bottom >= 200;
+          return rect.top <= 160 && rect.bottom >= 160;
         }
         return false;
       });
@@ -52,42 +49,28 @@ export const Navigation: React.FC = () => {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
-        isScrolled
-          ? 'bg-[#F9F5EE]/95 backdrop-blur-md border-b border-[#751424]/10 shadow-[0_2px_20px_rgba(117,20,36,0.03)] py-3'
-          : 'bg-transparent pt-6 sm:pt-8 pb-4'
-      }`}
-    >
-      <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16 flex items-start justify-between">
-        
-        {/* Top-Left: "good ideas take time —" in Caveat script when at top, or Name mark when scrolled */}
-        <div className="flex items-start">
-          {isScrolled ? (
-            <a
-              href="#hero"
-              onClick={(e) => handleNavClick(e, '#hero')}
-              className="font-serif-title font-medium text-base tracking-wide cursor-pointer transition-colors"
-              style={{ color: '#751424' }}
-              aria-label="Divya Sri Teegala - Top"
-            >
-              DIVYA SRI TEEGALA
-            </a>
-          ) : (
-            <div className="flex flex-col text-left select-none pointer-events-none">
-              <span
-                className="text-[1.35rem] sm:text-[1.55rem] font-medium leading-[1.08]"
-                style={{ fontFamily: "'Caveat', cursive", color: '#751424' }}
-              >
-                good<br />ideas<br />take time
-              </span>
-              <span className="w-5 h-[1.5px] bg-[#751424] mt-1.5 block opacity-85" />
-            </div>
-          )}
-        </div>
+    <header className="editorial-navbar py-3 px-6 sm:px-10 lg:px-16" aria-label="Primary Navigation">
+      <div className="w-full max-w-[1400px] mx-auto flex items-center justify-between">
+        {/* Left: Brand Identity Mark (Always visible, links to top) */}
+        <a
+          href="#hero"
+          onClick={(e) => handleNavClick(e, '#hero')}
+          className="flex items-baseline gap-2.5 cursor-pointer select-none group"
+          aria-label="Divya Sri Teegala - Back to top"
+        >
+          <span 
+            className="font-serif-title font-medium text-base sm:text-lg tracking-wider transition-colors"
+            style={{ color: '#751424' }}
+          >
+            DIVYA SRI TEEGALA
+          </span>
+          <span className="hidden sm:inline text-xs text-[#8A6D56] font-serif-body italic">
+            · Portfolio
+          </span>
+        </a>
 
-        {/* Top-Right: Exact Navigation Links in Josefin Sans */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8 pt-1" aria-label="Main Navigation">
+        {/* Right: Desktop Navigation Items */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8" aria-label="Main Navigation">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.href.substring(1);
             return (
@@ -95,8 +78,8 @@ export const Navigation: React.FC = () => {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`text-[0.72rem] tracking-[0.22em] transition-colors py-1 ${
-                  isActive ? 'text-[#751424] font-semibold' : 'text-[#3D332E] hover:text-[#751424]'
+                className={`text-[0.72rem] tracking-[0.2em] transition-colors py-1 ${
+                  isActive ? 'text-[#751424] font-semibold border-b border-[#751424]' : 'text-[#3D332E] hover:text-[#751424]'
                 }`}
                 style={{ fontFamily: "'Josefin Sans', sans-serif" }}
               >
@@ -117,10 +100,10 @@ export const Navigation: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div 
-          className="md:hidden bg-[#FAF6EE] border-b border-[#751424]/15 px-6 py-6 shadow-xl"
+          className="md:hidden bg-[#FAF6EE] border-b border-[#751424]/15 px-6 py-6 mt-3 shadow-xl"
           style={{ animation: 'slideDown 0.25s ease-out' }}
         >
           <div className="flex flex-col gap-3">
@@ -129,7 +112,7 @@ export const Navigation: React.FC = () => {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-xs tracking-[0.2em] text-[#2B2320] hover:text-[#751424] py-2 border-b border-[#751424]/10 flex items-center justify-between"
+                className="text-xs tracking-[0.2em] text-[#2B2320] hover:text-[#751424] py-2.5 border-b border-[#751424]/10 flex items-center justify-between"
                 style={{ fontFamily: "'Josefin Sans', sans-serif" }}
               >
                 <span>{item.label}</span>

@@ -15,7 +15,7 @@ export const Credentials: React.FC = () => {
         {/* Section Header — Natural wording */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
           <div>
-            <span className="section-kicker">04 / Experience &amp; Education</span>
+            <span className="section-kicker">03 / Experience &amp; Education</span>
             <h2 className="section-title">Experience &amp; Education</h2>
             <p className="section-subtitle">
               Work, testing, and engineering studies.

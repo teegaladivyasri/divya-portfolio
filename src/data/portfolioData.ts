@@ -2,15 +2,11 @@ export interface Project {
   id: string;
   title: string;
   category: string;
-  tagline: string;
   description: string;
-  highlights: string[];
   technologies: string[];
   liveUrl?: string;
   githubUrl?: string;
   inDevelopment?: boolean;
-  isModestPersonal?: boolean;
-  visualPreviewType: 'browser-hiresphere' | 'browser-back2u' | 'browser-assessment' | 'schematic-voting' | 'editorial-police';
   statusBadge?: string;
 }
 
@@ -30,13 +26,10 @@ export interface EducationItem {
   specialization: string;
 }
 
-export interface CertificationItem {
+export interface CertificateDocument {
   id: string;
   title: string;
-  issuer: string;
-  year: string;
-  credentialNote: string;
-  skillsCovered: string[];
+  image: string;
 }
 
 export interface SkillCategory {
@@ -62,88 +55,60 @@ export const PORTFOLIO_DATA = {
     },
     contact: {
       email: "teegaladivyasri@gmail.com",
-      github: "https://github.com/",
-      linkedin: "https://linkedin.com/in/",
-      instagram: "https://instagram.com/",
+      github: "https://github.com/teegaladivyasri",
+      linkedin: "https://www.linkedin.com/in/divya-sri-teegala-8b168935b/",
+      instagram: "https://www.instagram.com/divyasri_teegala/",
     }
   },
 
   projects: [
     {
+      id: "hirelens-ai",
+      title: "HireLens AI",
+      category: "Career & Resume Utility",
+      description: "A resume and job-description analysis tool that compares a resume with a job description and helps identify the match, skills present, missing skills, and areas for improvement.",
+      technologies: ["React", "TypeScript", "Next.js", "AI Integration", "Web APIs"],
+      liveUrl: "https://hirelens-ivory.vercel.app/",
+    },
+    {
       id: "hiresphere-ai",
       title: "HireSphere AI",
-      category: "Full-Stack Intelligent System",
-      tagline: "Streamlined candidate evaluation & intelligent interview assessment workflow.",
-      description: "A unified platform built to modernize talent evaluation. It enables automated candidate assessment workflows, structured scoring rubrics, and real-time response analysis in an intuitive interface.",
-      highlights: [
-        "Interactive evaluation dashboard with dynamic interview scoring rubrics",
-        "Responsive candidate workflow from submission to assessment report",
-        "Refined user experience prioritizing clarity and unhurried review"
-      ],
-      technologies: ["React", "TypeScript", "Next.js", "REST APIs", "Modern CSS"],
+      category: "Candidate Evaluation Platform",
+      description: "An AI-based platform for candidate evaluation and structured interview assessment.",
+      technologies: ["React", "TypeScript", "Next.js", "REST APIs"],
       liveUrl: "https://hiresphereai.vercel.app/",
-      visualPreviewType: "browser-hiresphere",
     },
     {
       id: "back2u",
       title: "Back2U",
       category: "Community Platform",
-      tagline: "A purposeful bridge for lost items and their rightful owners.",
-      description: "An intuitive lost-and-found reunion platform engineered to make reporting, identifying, and reclaiming misplaced belongings safe, prompt, and structured.",
-      highlights: [
-        "Structured claim verification flow to prevent fraudulent ownership claims",
-        "Categorized item catalog with geo-aware campus/community filters",
-        "Direct communication channel between finder and claimant"
-      ],
-      technologies: ["React", "Web Technologies", "State Management", "Responsive UI"],
+      description: "A lost-and-found platform that helps people report, find, and recover misplaced items.",
+      technologies: ["React", "State Management", "Responsive UI"],
       liveUrl: "https://find-it-back2u.vercel.app",
-      visualPreviewType: "browser-back2u",
     },
     {
       id: "assessment-generator",
       title: "Assessment Generator",
       category: "Educational Utility",
-      tagline: "Automated test creation and structured syllabus-to-evaluation pipeline.",
-      description: "A focused web utility designed to compose balanced examination papers and topic assessments with configurable difficulty curves, question distributions, and answer key generation.",
-      highlights: [
-        "Configurable parameter presets for quick assessment formatting",
-        "Instant document preview and clean print/export styling",
-        "Structured modular questions handling multiple assessment tiers"
-      ],
-      technologies: ["React", "JavaScript", "Document DOM API", "Custom CSS"],
+      description: "A web tool for creating assessments and question papers based on selected requirements.",
+      technologies: ["React", "JavaScript", "Custom CSS"],
       liveUrl: "https://assessment-generator-gilt.vercel.app",
-      visualPreviewType: "browser-assessment",
     },
     {
       id: "quantum-voting",
       title: "Quantum Secure Electronic Voting System",
-      category: "Research & Systems",
-      tagline: "Post-quantum cryptographic concepts applied to decentralized ballot integrity.",
-      description: "An active research-driven project designing a tamper-evident voting protocol resistant to quantum computational attacks. Leverages cryptographic hash chains and lattice-based key principles for unalterable tallying.",
-      highlights: [
-        "Voter anonymity preservation paired with individual verifiable receipts",
-        "Lattice-based encryption exploration for quantum resistance",
-        "Decentralized ledger consensus preventing central authority ballot manipulation"
-      ],
-      technologies: ["Cybersecurity Protocols", "Post-Quantum Cryptography", "Blockchain Architecture", "Consensus Algorithms"],
+      category: "Security Exploration",
+      description: "A project exploring a more secure electronic voting system using modern security concepts.",
+      technologies: ["Cybersecurity", "Blockchain Architecture", "Security Protocols"],
       inDevelopment: true,
-      statusBadge: "IN DEVELOPMENT",
-      visualPreviewType: "schematic-voting",
+      statusBadge: "In Development",
     },
     {
       id: "police-attendance",
       title: "Police Attendance Management System",
       category: "Practical Duty Management",
-      tagline: "A reliable daily muster roll and duty tracker built for departmental personnel.",
-      description: "A practical, modest system built specifically for her father to modernize shift tracking, personnel attendance logs, and daily station roll-calls with clear accountability and zero unnecessary complexity.",
-      highlights: [
-        "Straightforward duty roll-call interface tailored for practical daily usage",
-        "Personnel shift logging and attendance record preservation",
-        "Built with purpose to solve an everyday departmental need"
-      ],
-      technologies: ["Web Technologies", "Database Management", "Form Validation", "Responsive Layout"],
-      isModestPersonal: true,
-      visualPreviewType: "editorial-police",
+      description: "A simple attendance management system built to help manage police personnel attendance and daily records.",
+      technologies: ["Web Application", "Database Management", "Responsive Layout"],
     }
   ] as Project[],
 
@@ -171,40 +136,38 @@ export const PORTFOLIO_DATA = {
     }
   ] as EducationItem[],
 
-  certifications: [
+  certificateDocuments: [
     {
-      id: "cert-iot-security",
-      title: "Internet of Things & Embedded Systems Security",
-      issuer: "MVGR Academic & Technical Specialization",
-      year: "2024",
-      credentialNote: "Core domain coursework covering device authentication, sensor mesh protocols, and hardware boundary security.",
-      skillsCovered: ["IoT Protocols", "Device Security", "Network Edge"]
+      id: "cert-01",
+      title: "Certificate 01",
+      image: "/certifications/cert_01.jpg",
     },
     {
-      id: "cert-cyber-foundations",
-      title: "Foundations of Cybersecurity & Cryptographic Systems",
-      issuer: "Academic Specialization Track",
-      year: "2024",
-      credentialNote: "In-depth study of asymmetric key exchange, symmetric ciphers, threat modeling, and defensive architecture.",
-      skillsCovered: ["Cryptography", "Network Defense", "Threat Analysis"]
+      id: "cert-02",
+      title: "Certificate 02",
+      image: "/certifications/cert_02.jpg",
     },
     {
-      id: "cert-blockchain-consensus",
-      title: "Blockchain Architecture & Distributed Ledgers",
-      issuer: "Specialization Curriculum",
-      year: "2024",
-      credentialNote: "Decentralized consensus mechanisms, smart contract lifecycle principles, and tamper-evident data structures.",
-      skillsCovered: ["Distributed Ledgers", "Consensus Models", "Data Integrity"]
+      id: "cert-03",
+      title: "Certificate 03",
+      image: "/certifications/cert_03.jpg",
     },
     {
-      id: "cert-software-testing",
-      title: "Integration & Web Systems Verification",
-      issuer: "NetMaxin Group Practicum",
-      year: "2024–Present",
-      credentialNote: "Applied testing standards, regression validation, UI stability audits, and systematic bug isolation.",
-      skillsCovered: ["Integration Testing", "UI Verification", "Bug Tracking"]
-    }
-  ] as CertificationItem[],
+      id: "cert-04",
+      title: "Certificate 04",
+      image: "/certifications/cert_04.jpg",
+    },
+    {
+      id: "cert-05",
+      title: "Certificate 05",
+      image: "/certifications/cert_05.jpg",
+    },
+    {
+      id: "cert-06",
+      title: "Certificate 06",
+      image: "/certifications/cert_06.jpg",
+    },
+  ] as CertificateDocument[],
 
   skillCategories: [
     {
@@ -229,11 +192,8 @@ export const PORTFOLIO_DATA = {
     }
   ] as SkillCategory[],
 
-  photoPlaceholders: [
-    { id: "photo-01", file: "/photos/divya_01.jpg", label: "01" },
-    { id: "photo-02", file: "/photos/divya_02.jpg", label: "02" },
-    { id: "photo-03", file: "/photos/divya_03.jpg", label: "03" },
-    { id: "photo-04", file: "/photos/divya_04.jpg", label: "04" },
-    { id: "photo-05", file: "/photos/divya_05.jpg", label: "05" },
-  ]
+  singlePhoto: {
+    file: "/photos/divya.jpg",
+    alt: "Divya Sri Teegala",
+  }
 };

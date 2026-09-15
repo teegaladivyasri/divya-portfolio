@@ -24,7 +24,7 @@ export const SkillsContext: React.FC = () => {
         {/* Section Header — Exactly as requested in Refinement Prompt */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <span className="section-kicker">06 / Skills &amp; Technologies</span>
+            <span className="section-kicker">05 / Skills &amp; Technologies</span>
             <h2 className="section-title">What I Work With</h2>
             <p className="section-subtitle">
               Technologies and tools I use across my projects and work.
